@@ -19,5 +19,5 @@ $ python install -r requirements.txt
 
 Just execute:
 ```
-$ python main.py
+$ python src/main.py
 ```

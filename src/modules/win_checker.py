@@ -1,7 +1,7 @@
 MIN_MOVES_WIN = 5
 MAX_MOVES = 9
 
-def run(moves, current_board, char):
+def should_stop(moves, current_board, char):
     if moves < MIN_MOVES_WIN:
         return False
 
@@ -25,6 +25,6 @@ def run(moves, current_board, char):
                 
     if moves == MAX_MOVES:
         print('Tie! No one wins')
-        return False
+        return True
 
     return False

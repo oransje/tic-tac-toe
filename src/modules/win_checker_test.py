@@ -6,7 +6,7 @@ def test_min_moves():
          ' ', ' ', ' ']
     c = 4
 
-    w = win_checker.run(c, b, 'O')
+    w = win_checker.should_stop(c, b, 'O')
 
     assert w == False
 
@@ -16,8 +16,8 @@ def test_no_win():
          ' ', ' ', 'O']
     c = 5
 
-    w = win_checker.run(c, b, 'X')
-    v = win_checker.run(c, b, 'O')
+    w = win_checker.should_stop(c, b, 'X')
+    v = win_checker.should_stop(c, b, 'O')
 
     assert w == False
     assert v == False
@@ -28,10 +28,10 @@ def test_tie(capfd):
          ' ', ' ', 'O']
     c = 9
 
-    w = win_checker.run(c, b, 'X')
+    w = win_checker.should_stop(c, b, 'X')
     out, err = capfd.readouterr()
 
-    assert w == False
+    assert w == True
     assert out == 'Tie! No one wins\n'
 
 
@@ -41,7 +41,7 @@ def test_vertical_0(capfd):
          ' ', ' ', ' ']
     c = 5
 
-    w = win_checker.run(c, b, 'O')
+    w = win_checker.should_stop(c, b, 'O')
     out, err = capfd.readouterr()
 
     assert w == True
@@ -53,7 +53,7 @@ def test_vertical_1(capfd):
          ' ', ' ', ' ']
     c = 5
 
-    w = win_checker.run(c, b, 'O')
+    w = win_checker.should_stop(c, b, 'O')
     out, err = capfd.readouterr()
 
     assert w == True
@@ -65,7 +65,7 @@ def test_vertical_2(capfd):
          'X', 'X', 'X']
     c = 5
 
-    w = win_checker.run(c, b, 'X')
+    w = win_checker.should_stop(c, b, 'X')
     out, err = capfd.readouterr()
 
     assert w == True
@@ -77,7 +77,7 @@ def test_horizontal_0(capfd):
          'X', ' ', ' ']
     c = 5
 
-    w = win_checker.run(c, b, 'X')
+    w = win_checker.should_stop(c, b, 'X')
     out, err = capfd.readouterr()
 
     assert w == True
@@ -89,7 +89,7 @@ def test_horizontal_1(capfd):
          ' ', 'X', ' ']
     c = 5
 
-    w = win_checker.run(c, b, 'X')
+    w = win_checker.should_stop(c, b, 'X')
     out, err = capfd.readouterr()
 
     assert w == True
@@ -101,7 +101,7 @@ def test_horizontal_2(capfd):
          ' ', ' ', 'X']
     c = 5
 
-    w = win_checker.run(c, b, 'X')
+    w = win_checker.should_stop(c, b, 'X')
     out, err = capfd.readouterr()
 
     assert w == True
@@ -113,7 +113,7 @@ def test_diagonal_0(capfd):
          ' ', ' ', 'A']
     c = 5
 
-    w = win_checker.run(c, b, 'A')
+    w = win_checker.should_stop(c, b, 'A')
     out, err = capfd.readouterr()
 
     assert w == True
@@ -125,7 +125,7 @@ def test_horizontal_1(capfd):
          'C', ' ', ' ']
     c = 5
 
-    w = win_checker.run(c, b, 'C')
+    w = win_checker.should_stop(c, b, 'C')
     out, err = capfd.readouterr()
 
     assert w == True

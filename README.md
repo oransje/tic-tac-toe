@@ -21,3 +21,7 @@ Just execute:
 ```
 $ python src/main.py
 ```
+
+### Acknowledgements
+
+Revision and great insights by @anderson-tomkelski

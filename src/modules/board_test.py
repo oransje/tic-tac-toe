@@ -43,3 +43,15 @@ def test_write_diplay_board(capfd):
     out, err = capfd.readouterr()
     
     assert out == 'X| | \n-+-+-\n | | \n-+-+-\n | | \n'
+
+def test_full_board_truthy():
+    board.init()
+
+    board.current = ['X'] * 9
+
+    assert board.full_board() == True
+
+def test_full_board_falsey():
+    board.init()
+
+    assert board.full_board() == False

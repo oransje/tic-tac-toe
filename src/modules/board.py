@@ -1,10 +1,9 @@
 current = []
+BOARD_SIZE = 9
 
 def init():
     global current
-    current = [' ', ' ', ' ',
-               ' ', ' ', ' ',
-               ' ', ' ', ' ']
+    current = [' '] * BOARD_SIZE
 
 def write(pos, char):
     global current
@@ -21,3 +20,7 @@ def display():
         print(current[0+i] + '|' + current[1+i] + '|' + current[2+i])
         if i < 6:
             print('-+-+-')
+
+def full_board():
+    global current
+    return current.count(' ') == 0
